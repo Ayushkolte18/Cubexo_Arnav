@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Tables</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css" rel="stylesheet" type="text/css">
     {#    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"#}
@@ -38,9 +38,10 @@
     <script src="https://cdn.datatables.net/fixedcolumns/3.3.0/js/dataTables.fixedColumns.min.js"></script>
     <style>
         img {
-                    width: 20%;
-                    height: 137px;
-                    margin-bottom: -59px;
+            width: 12%;
+            height: 100px;
+            margin-top:2px;
+            margin-bottom: auto;
 
         }
 
@@ -55,36 +56,50 @@
         div.container {
             width: 80%;
         }
+        .column{
+             width: 50%;
+            border: 1px solid red;
+
+        }
     </style>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
     <link href="https://cdn.datatables.net/fixedcolumns/3.3.0/css/fixedColumns.dataTables.min.css">
 
 </head>
 <body>
 
-<img class="mx-auto d-block" src="https://media-exp1.licdn.com/dms/image/C4E0BAQH2EfBiFVU1Qg/company-logo_200_200/0?e=2159024400&v=beta&t=wPQ4mcT9iHHpWbyPqiS_kYzCoFV2TU33lK8fJM4zIYY" alt="no-image">
-<div id="testA"  class="table table-bordered ">
-    <table id="example" class="stripe row-border order-column"  style="width:100%">
+<div class="row">
+  <div class="column">
+    <img src="https://media-exp1.licdn.com/dms/image/C4E0BAQH2EfBiFVU1Qg/company-logo_200_200/0?e=2159024400&v=beta&t=wPQ4mcT9iHHpWbyPqiS_kYzCoFV2TU33lK8fJM4zIYY"
+         alt="no-image"></div>
+ <div class="column">
+      <a style="float: initial;" href="/accounts/login/?next=/login/"><i class="glyphicon glyphicon-off"></i> Logout</a>
+</div>
+</div>
+<div id="testA" class="table table-bordered ">
+    <table id="example" class="stripe row-border order-column" style="width:100%">
         <thead style="background-color: #2b2b2b; color: white;">
         <tr>
             <th id="S.no">S.No</th>
-            <th id="Site_name">Site_Name</th>
+            <th id="Site Name">Site Name</th>
             <th id="Organisation">Organisation</th>
-            <th id="Tender_ID">Tender_ID</th>
-            <th id="Publish_Date">Publish_Date</th>
+            <th id="Tender_ID">Tender ID</th>
+            <th id="Publish_Date">Publish Date</th>
             <th id="Deadline">Deadline</th>
-            <th id="Tender_Amount">Tender_Amount</th>
-            <th id="EMD_Amount">EMD_Amount</th>
+            <th id="Tender_Amount">Tender Amount</th>
+            <th id="EMD_Amount">EMD Amount</th>
             <th id="Location">Location</th>
-            <th id="Tender_Link">Tender_Link</th>
-            <th id="Tender_Details">Tender_Details</th>
-            <th id="Upload_Date">Upload_Date</th>
+            <th id="Tender_Link">Tender Link</th>
+            <th id="Tender_Details">Tender Details</th>
+            <th id="Upload_Date">Upload Date</th>
         </tr>
         </thead>
         <tbody>
         {% for i in records %}
             <tr style="font-size: 12px; height: 12px;">
                 <td id="S.no" style="font-weight: bold; font-size: 13px;">{{ i.0 }}</td>
+
                 <td id="Site_name">{{ i.1 }}</td>
                 <td id="Organisation">{{ i.2 }}</td>
                 <td id="Tender_ID">{{ i.3 }}</td>
@@ -113,7 +128,8 @@
             columnDefs: [
                 {width: '20%', targets: 0}
             ],
-            fixedColumns: true
+            fixedColumns: true,
+             "order": [[ 11, "desc" ]]
         });
     });
 </script>

@@ -15,12 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from .views import daily_database, master_database
 
 urlpatterns = [
-    path('accounts/',include('django.contrib.auth.urls')),
-    path('admin/', admin.site.urls),
-    path('database/', include('Database_app.urls')),
-    path('keyword/',include('keyword_api.urls')),
-    path('login/', include('authentication.urls')),
-
+    path('daily_database/',daily_database),
+    path('master_database/',master_database),
 ]
